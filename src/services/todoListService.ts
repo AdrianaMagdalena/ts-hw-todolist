@@ -17,8 +17,7 @@ NICE TO HAVE:
 - modifying a todo item
 */
 
-import { LogAddition } from "../decorators/logAddition.js";
-import { LogDeletion } from "../decorators/logDeletion.js";
+import { TodoStatus, LogStatus } from "../decorators/logStatus.js";
 import TodoItem from "../modules/todoItem.js";
 import { getTodoName } from "../utils/getTodoName.js";
 import { TodoContent } from "../utils/todoContent.js";
