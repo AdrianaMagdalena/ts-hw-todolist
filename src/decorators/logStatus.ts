@@ -9,8 +9,8 @@ for displaying status updates in console about a change in todo item
 */
 
 export enum TodoStatus {
-  new = "Todo item created.",
-  done = "Todo item done. Removing from list.",
+  new = "⭐ Todo item created.",
+  done = "✅ Todo item done. Removing from list.",
 }
 
 export function LogStatus(status: string) {

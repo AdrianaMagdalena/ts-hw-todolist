@@ -1,9 +1,3 @@
-/*
-typeguard for a todo item name
-
-tbc
-*/
-
 import { TodoContent, TodoObjectContent } from "./todoContent";
 
 function isObjectContent(content: TodoContent): content is TodoObjectContent {
