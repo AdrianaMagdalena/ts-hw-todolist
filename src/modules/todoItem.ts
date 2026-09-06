@@ -16,8 +16,9 @@ NICE TO HAVE:
 - reminder alarm (how long before? multiple?)
 - enum with statuses (or other status handling)
 */
+import { TodoContent } from "../utils/todoContent.js";
 
-export default class TodoItem<T> {
+export default class TodoItem<T extends TodoContent> {
   private _id: string;
   private _content: T;
 

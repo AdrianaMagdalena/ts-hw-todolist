@@ -1,9 +1,9 @@
-import { TodoList } from "./services/todo-list-service.js";
-import TodoItem from "./modules/todo-item.js";
+import { TodoList } from "./services/todoListService.js";
+import TodoItem from "./modules/todoItem.js";
 
 const todo1 = new TodoItem("Wash clothes");
 const todo2 = new TodoItem({
-  content: "Pack luggage",
+  name: "Pack luggage",
   dueDate: new Date("2026-09-08"),
   category: "travel",
 });

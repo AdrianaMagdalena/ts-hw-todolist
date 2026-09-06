@@ -19,28 +19,28 @@ NICE TO HAVE:
 
 import { LogAddition } from "../decorators/logAddition.js";
 import { LogDeletion } from "../decorators/logDeletion.js";
-import TodoItem from "../modules/todo-item.js";
-import { TodoContent } from "../utils/types.js";
+import TodoItem from "../modules/todoItem.js";
+import { getTodoName } from "../utils/getTodoName.js";
+import { TodoContent } from "../utils/todoContent.js";
 
-export class TodoList<T> {
-  private _listItems: Map<string, TodoItem<T>> = new Map();
+export class TodoList {
+  private _listItems: Map<string, TodoItem<TodoContent>> = new Map();
 
-  @LogAddition
-  addTodo(todo: TodoItem<T>): void {
+  @LogStatus(TodoStatus.new)
+  addTodo(todo: TodoItem<TodoContent>): void {
     this._listItems.set(todo.id, todo);
-    console.log(`Todo item created: ${todo.id}`);
+    console.log(`New todo ID: ${todo.id}`);
   }
 
-  @LogDeletion
-  checkTodo(todo: TodoItem<T>) {
+  @LogStatus(TodoStatus.done)
+  checkTodo(todo: TodoItem<TodoContent>) {
     this._listItems.delete(todo.id);
-    console.log(`Todo done: ${todo.id}`);
+    console.log(`Removed todo ID: ${todo.id}`);
   }
 
   listTodos() {
-    // TODO - change this into type guard???
-    this._listItems.forEach((item) => {
-      console.log(`ID: ${item.id}, name: ${JSON.stringify(item.content)}`);
+    this._listItems.forEach((todo) => {
+      console.log(getTodoName(todo.content));
     });
   }
 }
