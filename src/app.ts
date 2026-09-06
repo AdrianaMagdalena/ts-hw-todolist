@@ -32,7 +32,16 @@ todoList.addTodo(todo6);
 
 todoList.listTodos();
 
-todoList.checkTodo(todo1);
+todoList.checkTodo(todo3);
+todoList.checkTodo(todo6);
 todoList.listTodos();
 
+todoList.filterCategory("chores");
+
+todoList.modifyTodoContent(todo1.id, {
+  name: "Wash clothes",
+  category: "chores",
+});
+
+console.log(todo1);
 todoList.filterCategory("chores");

@@ -52,3 +52,8 @@ export class TodoList<T> {
   // További metódusok: deleteItem, listItems, stb.
 }
 ```
+
+## Más használt források:
+
+1. Random ID generator idea from:
+   https://www.webdevtutor.net/blog/typescript-get-random-id

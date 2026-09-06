@@ -1,9 +1,4 @@
 /*
-for creating a todo item class & constructor
-without methods or logic behind it
-just to be able to instantiate a todo inside a list
-
-properties:
 MUST HAVE:
 - ID (id randomisation?)
 - category (optional, if not chosen - default to "general")
@@ -16,10 +11,11 @@ NICE TO HAVE:
 - reminder alarm (how long before? multiple?)
 - enum with statuses (or other status handling)
 */
+
 import { TodoContent } from "../utils/todoContent.js";
 
 export default class TodoItem<T extends TodoContent> {
-  private _id: string;
+  protected _id: string;
   private _content: T;
 
   constructor(content: T) {
@@ -35,9 +31,11 @@ export default class TodoItem<T extends TodoContent> {
     return this._content;
   }
 
+  modifyContent(newContent: T) {
+    this._content = newContent;
+  }
+
   private generateTodoId(length: number): string {
-    // random ID generator idea from:
-    // https://www.webdevtutor.net/blog/typescript-get-random-id
     const chars: string =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     let result: string = "";

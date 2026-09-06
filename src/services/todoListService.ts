@@ -1,8 +1,4 @@
 /* 
-for business logic, data transformation
-how todo list treats todo items
-
-funtions to do:
 MUST HAVE:
 - creating a list
 - adding a todo to the list
@@ -29,6 +25,18 @@ export class TodoList {
   addTodo(todo: TodoItem<TodoContent>): void {
     this._listItems.set(todo.id, todo);
     console.log(`New todo ID: ${todo.id}`);
+  }
+
+  @LogStatus(TodoStatus.modified)
+  modifyTodoContent(id: string, newContent: TodoContent): void {
+    const currentTodo = this._listItems.get(id);
+
+    if (!currentTodo) {
+      console.log(`Error: Todo item with ID ${id} was not found.`);
+      return;
+    }
+    currentTodo.modifyContent(newContent);
+    console.log(`Todo item with ID ${id} was successfully modified!`);
   }
 
   @LogStatus(TodoStatus.done)
